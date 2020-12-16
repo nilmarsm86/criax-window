@@ -1,0 +1,31 @@
+{
+    "export" : ["source-parts", "build-parts"],
+    "jobs" :
+    {
+        "source-parts":
+        {
+          "extend" : ["source"],
+          "packages" :
+          {
+            "parts" :
+            {
+              "boot" : { "include" : [ "${APPLICATION}.theme.Theme", "${APPLICATION}.Application" ] },
+            },
+            "separate-loader" : true,
+          }
+        },
+
+        "build-parts":
+        {
+          "extend" : ["build"],
+          "packages" :
+          {
+            "parts" :
+            {
+              "boot" : { "include" : [ "${APPLICATION}.theme.Theme", "${APPLICATION}.Application" ] },
+            },
+            "separate-loader" : true,
+          }
+        }
+    }
+}

@@ -1,0 +1,109 @@
+{
+  "name"    : "${Name}",
+
+  "include" :
+  [
+    //PLATAFORM
+    {"path" : "$${QOOXDOO_PATH}/tool/data/config/application.json", "block" : ["test", "test-source"]},    
+    {"path" : "$${QOOXDOO_PATH}/../../lib/testrunner/testrunner.json", "as"   : "testrunner-httpd"},
+    {"path" : "$${QOOXDOO_PATH}/component/standalone/server/server.json", "as"   : "server"},
+    //APP
+    {"path" : "$${ROOT}/etc/configs/enviroment.json"},
+    //CRIAX
+    {"path" : "$${QOOXDOO_PATH}/../../etc/configs/criax.json"},
+    {"path" : "$${QOOXDOO_PATH}/../../etc/configs/httpd.json"}
+  ],
+
+  "export" :
+  [
+    //PLATAFORM
+    "api",
+    "api-data",
+    "build",
+    "clean",
+    "distclean",
+    "dependencies",
+    "fix",
+    "info",
+    "lint",
+    //"library",
+    "migration",
+    "pretty",
+    "profiling",
+    "source",
+    "test",
+    "test-source",
+    "translation",
+    "validate-config",
+    "validate-manifest",
+    "watch",
+    "build-resources", 
+    "build-files",
+    //CRIAX    
+    "beauty",    
+    "white-space",    
+    "clean-all",
+    "validate",
+    //APP    
+    "app-source"
+  ],
+  
+  "let" :
+  {
+    "APPLICATION"  : "${Namespace}",
+    "QOOXDOO_PATH" : "${REL_QOOXDOO_PATH}",
+    "API_EXCLUDE"  : ["$${APPLICATION}.test.*", "qx.*", "$${APPLICATION}.simulation.*", "criax.*", "cormx.*", "accordion.*", "collapsablepanel.*", "combotable.*", "dialog.*", "logpane.*", "mutablelist.*", "tokenfield.*", "versionlabel.*"],
+    "LOCALES"      : [ "en" ],
+    "CACHE"        : "./var/cache",
+    "ROOT"         : "."
+  },
+
+  "config-warnings" :
+  {
+    "job-shadowing" : [
+      "api-data",
+      "build-files",
+      "build-resources",
+      "build-script",
+      "dependencies",
+      "source"
+    ]
+  },
+
+  // You only need to edit the remainder of this file, if you want to customize
+  // specific jobs, or add own job definitions.
+
+  "jobs" :
+  {
+    "app-source":
+    {
+      "extend" : ["env", "source"]
+    },
+    
+    "build-script" :
+    {
+      "extend" : [ "basic-common" ],
+      "environment" :
+      {
+        "qx.debug" : false
+      },
+      "compile-options" :
+      {
+        "uris" :
+        {
+          "script" : "$${ROOT}"
+        }
+      }
+    },
+    
+    "build-resources":
+    {
+      "extend" : [ "basic-common" ]      
+    },
+    
+    "build-files" :
+    {
+      "extend" : [ "basic-common" ]
+    }
+  }
+}

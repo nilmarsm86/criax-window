@@ -1,0 +1,9 @@
+/***** IMPORTADOR DE SERVICIOS *********/
+{
+    services: [
+        //importar los servicios de persistencia
+        {include:"persistence"},
+        //importar los servicios de los test
+        //{include:"test"}
+    ]
+}

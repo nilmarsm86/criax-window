@@ -1,0 +1,31 @@
+{
+    "export" : ["env"],
+    "jobs" :
+    {
+        "env" :
+        {
+            "desc" : "Set the init environment for app",
+            
+            "environment" :
+            {
+                //DEBUG
+                "qx.debug" : true,
+                "qx.debug.dispose" : true,
+                "qx.debug.dispose.level" : 2,//cuando se cierra la aplicacion salen los mensajes
+                "qx.debug.io" : true,
+                "qx.debug.ui.queue" : true,
+                "qx.debug.databinding": false,
+
+                //ENVIROMENT
+                "criax.production" : false,
+
+                //SERVICES
+                "criax.services.dir" : "services",
+                "criax.services.default" : "services",
+
+                //LANGUAGE
+                "criax.i18n" : "es"
+            }
+        }
+    }
+}

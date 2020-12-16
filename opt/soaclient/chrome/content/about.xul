@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://soaclient/skin/about.css" type"text/css"?>
+
+<!DOCTYPE page SYSTEM "chrome://soaclient/locale/soaclient.dtd">
+
+<dialog title="&soaclient.about.title;" 
+		autostretch="always"
+		buttons="accept"
+		orient="vertical"
+		onload="sizeToContent()" 
+		xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	<groupbox orient="horizontal" align="center">
+		<hbox>
+			<vbox>
+			  <hbox>
+				<image id="soaclienticon"/>
+			  </hbox>
+			  <text value="Version: 0.2"/>
+			  <separator class="thin"/>
+			  <text value="&soaclient.about.createdby;" style="font-weight: bold;"/>
+			  <text value="Michael Santoso"/>
+			  <separator class="thin"/>
+			  <separator class="thin"/>
+			  <text value="&soaclient.about.supportedby;" style="font-weight: bold;"/>
+			  <vbox>
+				<hbox>		
+					<image id="icsicon"/>
+				</hbox>
+				<text value="Informatik Consulting Systems AG"/>
+				<separator class="thin"/>
+				<text value="&soaclient.about.address;"/>
+				<text value="Sonnenbergstrasse 13"/>
+				<text value="70184 Stuttgart"/>
+				<text value="Germany"/>
+				<separator class="thin"/>
+				<text value="&soaclient.about.website;"/>
+				<text value="http://www.ics-ag.de" style="text-decoration: underline;" class="url" onclick="window.open('http://www.ics-ag.de');"/>		
+				<separator class="thin"/>
+				<separator class="thin"/>
+				<hbox>
+					<image id="iasicon"/>
+				</hbox>
+				<text value="Institute of Industrial Automation and Software Engineering"/>
+				<separator class="thin"/>
+				<text value="&soaclient.about.address;"/>
+				<text value="Pfaffenwaldring 47"/>
+				<text value="70550 Stuttgart"/>
+				<text value="Germany"/>
+				<separator class="thin"/>
+				<text value="&soaclient.about.website;"/>
+				<text value="http://www.ias.uni-stuttgart.de" style="text-decoration: underline;" class="url" onclick="window.open('http://www.ias.uni-stuttgart.de');"/>
+			  </vbox>
+			  <separator class="thin"/>
+			</vbox>
+			<vbox>
+				<text value="&soaclient.about.copyright;" style="font-weight: bold;"/>
+				<separator class="thin"/>
+				<textbox readonly="true" 
+						multiline="true"
+						rows="10"
+						width="300"
+						value="&soaclient.about.licensetext;"/>
+				<separator class="thin"/>
+				<text value="&soaclient.about.license;" style="font-weight: bold;"/>
+				<text value=" GNU/GPLv3" class="url" onclick="window.open('http://www.gnu.org/licenses/gpl.html');"/>
+				<hbox>
+					<text value="&soaclient.about.detail;"/>
+					<button id="gplenglish" label="&soaclient.about.english;" onclick="window.open('http://www.gnu.org/licenses/gpl.html');"/>
+					<button id="gplgerman" label="&soaclient.about.german;" onclick="window.open('http://www.gnu.de/documents/gpl.de.html');"/>
+				</hbox>
+				<separator class="thin"/>
+				<separator class="thin"/>
+				<separator class="thin"/>
+				<text value="&soaclient.about.libraries;" style="font-weight: bold;"/>
+				<text value=" JavaScript SOAP Library by Casati" style="text-decoration: underline;" class="url" onclick="window.open('http://www.codeplex.com/JavaScriptSoapClient');"/>
+				<separator class="thin"/>
+				<text value=" JavaScript base64 Library by Webtoolkit" style="text-decoration: underline;" class="url" onclick="window.open('http://www.webtoolkit.info/javascript-base64.html');"/>
+				<separator class="thin"/>				
+				<text value=" VisualPharm Free Icons by VisualPharm" style="text-decoration: underline;" class="url" onclick="window.open('http://www.visualpharm.com');"/>				
+				<separator class="thin"/>				
+				<text value=" Free Web Development Icons by Icojoy" style="text-decoration: underline;" class="url" onclick="window.open('http://www.freeiconsdownload.com/Free_Downloads.asp?id=265');"/>				
+				<separator class="thin"/>				
+				<text value=" Business Icons by Free Icons Download" style="text-decoration: underline;" class="url" onclick="window.open('http://www.freeiconsdownload.com/Free_Downloads.asp?id=240');"/>
+				<separator class="thin"/>
+			</vbox>
+		</hbox>
+	</groupbox>	
+</dialog>

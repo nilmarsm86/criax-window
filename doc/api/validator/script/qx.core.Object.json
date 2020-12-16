@@ -1,0 +1,1 @@
+{"attributes": {"fullName": "qx.core.Object", "packageName": "qx.core", "isStatic": true, "name": "Object", "childClasses": "validator.ConstraintViolation,validator.Validator,validator.constraints.Constraint,validator.fixture.Author"}, "type": "class"}

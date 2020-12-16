@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type"text/css"?>
+<?xml-stylesheet href="chrome://browser/skin/browser.css" type="text/css"?>
+
+<?xml-stylesheet href="chrome://soaclient/skin/webservices.css" type"text/css"?>
+
+<!DOCTYPE page SYSTEM "chrome://soaclient/locale/soaclient.dtd">
+
+<window id="webservices" title="&soaclient.overlay.title;" 
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"  
+        xmlns:html="http://www.w3.org/1999/xhtml">
+
+  <script type="application/x-javascript" src="chrome://soaclient/content/webservices.js"/>
+  <script type="application/x-javascript" src="chrome://soaclient/content/gui/gui.js"/>
+  <script type="application/x-javascript" src="chrome://soaclient/content/wsdlparser/initwsdlparser.js"/>
+  <script type="application/x-javascript" src="chrome://soaclient/content/wsdlparser/wsdlparser11.js"/>
+  <script type="application/x-javascript" src="chrome://soaclient/content/wsdlparser/wsdlparser20.js"/>
+  <script type="application/x-javascript" src="chrome://soaclient/content/httpproxy/httpproxy.js"/>
+  <script type="application/x-javascript" src="chrome://soaclient/content/soapgenerator/soapgenerator.js"/>
+  <script type="application/x-javascript" src="chrome://soaclient/content/soapparser/soapparser.js"/>
+  <script type="application/x-javascript" src="chrome://soaclient/content/wsdlparser/soapclient.js"/>
+  
+  <script>
+    <![CDATA[
+	   function loadAbout() {
+        window.openDialog("chrome://soaclient/content/about.xul","about","chrome,modal,dialog,resizable,centerscreen");
+      }
+    ]]>
+  </script>
+  
+  <vbox flex="1">
+	<toolbox>
+		<toolbar>
+			<toolbarbutton label="&soaclient.webservices.menu.WS;" class="toolbarbutton" id="wsicon" onclick="location.href='chrome://soaclient/content/webservices.xul'" />
+			<toolbarseparator/>      
+			<toolbarbutton label="&soaclient.webservices.menu.UDDI;" class="toolbarbutton" id="uddiicon" onclick="location.href='chrome://soaclient/content/uddi.xul'" />
+			<toolbarseparator/> 	  
+			<toolbarbutton label="&soaclient.webservices.menu.ADVANCED;" class="toolbarbutton" id="advancedicon" onclick="location.href='chrome://soaclient/content/advanced.xul'" />
+			<toolbarseparator/> 
+			<toolbarbutton label="&soaclient.about.title;" class="toolbarbutton" id="abouticon" onclick="loadAbout();" />
+		</toolbar>
+	</toolbox>
+  
+	<groupbox>
+		<caption class="title" label="&soaclient.webservices.title;"/>
+		<hbox>
+			<label value="&soaclient.webservices.wsdladdress;" />
+			<textbox 	id="wsdlUrl" 
+						flex="8"
+						tabscrolling="true"
+						autocompletesearch="form-history"
+						autocompletesearchparam="wsdlhistory"
+						enablehistory="true"
+						maxrows="8"
+						completeselectedindex="true"
+						type="autocomplete"
+						autocompletepopup="PopupAutoComplete"
+						onkeypress="GUI.enterWS(event);">
+			</textbox>
+			<button id="browseFile" label="&soaclient.webservices.browsefile;" oncommand="webservicesClient.browseFile()"/>
+			<button id="doParse" label="&soaclient.webservices.doparse;" onclick="webservicesClient.doParse();" />
+		</hbox>
+		<hbox>
+			<button label="&soaclient.webservices.authentication;" id="authenticationicon" onclick="webservicesClient.doAuthentication();" />
+			<label value="&soaclient.webservices.communication;" />
+			<radiogroup orient="horizontal" >
+				<radio id="radiosync" orient="horizontal" label="&soaclient.webservices.radio.sync;">
+				</radio>
+				<radio id="radioasync" orient="horizontal" label="&soaclient.webservices.radio.async;" selected="true">
+				</radio>
+			</radiogroup>
+		</hbox>
+		<separator class="thin" flex="1" />
+	</groupbox>
+	
+	<hbox>
+		<caption label="&soaclient.webservices.mainbox.title;"/>
+		<iframe id="webservicesMainbox" type="content-primary" src="chrome://soaclient/content/result/wsresult.xhtml" flex="100" height="300"/>
+		<hbox>
+			<button id="sendRequest" label="&soaclient.webservices.sendRequest;" disabled="false" onclick="webservicesClient.doSendRequest();" />
+		</hbox>
+	</hbox>
+	<splitter/>
+	
+	<tabbox flex="1" id="tab_box" selectedIndex="0">
+		<tabs>
+			<tab label="&soaclient.webservices.box.wsdl.titel;"/> 
+			<tab label="&soaclient.webservices.box.request.header.titel;"/> 
+		    <tab label="&soaclient.webservices.box.request.body.titel;"/> 
+		    <tab label="&soaclient.webservices.box.response.header.titel;"/>
+		    <tab label="&soaclient.webservices.box.response.body.titel;"/>
+		</tabs>
+		<tabpanels flex="3">
+		    <tabpanel flex="1">
+		    	<textbox id="box_wsdl" readonly="true" multiline="true" flex="1"/>
+		    </tabpanel>
+		    <tabpanel flex="1">
+		    	<textbox id="box_requestHeader" multiline="true" flex="1" value="Content-Type: text/xml"/>
+		    </tabpanel>
+			<tabpanel flex="1">
+				<textbox id="box_requestBody" readonly="true" multiline="true" flex="1"/>
+		    </tabpanel>
+			<tabpanel flex="1">
+		    	<textbox id="box_responseHeader" readonly="true" multiline="true" flex="1"/>
+		    </tabpanel>
+		    <tabpanel flex="1">
+		    	<textbox id="box_responseBody" readonly="true" multiline="true" flex="1"/>
+		    </tabpanel>
+		</tabpanels>
+	</tabbox>
+	
+	<hbox>
+		<caption label="&soaclient.statusbox.title;"/>
+		<textbox id="statusbox" readonly="true" multiline="false" flex="1" editable="false"/>
+	</hbox>
+  </vbox>
+</window>

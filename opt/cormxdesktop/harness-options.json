@@ -1,0 +1,37 @@
+{
+    "main": "main", 
+    "jetpackID": "9374a30c-1c8b-40c1-b3d7-8a326519eac8", 
+    "bootstrap": {
+        "classID": "{9374a30c-1c8b-40c1-b3d7-8a326519eac8}", 
+        "contractID": "@mozilla.org/harness-service;1?id=9374a30c-1c8b-40c1-b3d7-8a326519eac8"
+    }, 
+    "loader": "resource://9374a30c-1c8b-40c1-b3d7-8a326519eac8-internal/cuddlefish.js", 
+    "rootPaths": [
+        "resource://9374a30c-1c8b-40c1-b3d7-8a326519eac8-criax/", 
+        "resource://9374a30c-1c8b-40c1-b3d7-8a326519eac8-internal/", 
+        "resource://9374a30c-1c8b-40c1-b3d7-8a326519eac8-lib/", 
+        "resource://9374a30c-1c8b-40c1-b3d7-8a326519eac8-lib1.13/"
+    ], 
+    "bundleID": "9374a30c-1c8b-40c1-b3d7-8a326519eac8", 
+    "resources": {
+        "9374a30c-1c8b-40c1-b3d7-8a326519eac8-criax": [
+            "packages", 
+            "9374a30c-1c8b-40c1-b3d7-8a326519eac8-criax"
+        ], 
+        "9374a30c-1c8b-40c1-b3d7-8a326519eac8-internal": [
+            "packages", 
+            "9374a30c-1c8b-40c1-b3d7-8a326519eac8-internal"
+        ], 
+        "9374a30c-1c8b-40c1-b3d7-8a326519eac8-lib1.13": [
+            "packages", 
+            "9374a30c-1c8b-40c1-b3d7-8a326519eac8-lib1.13"
+        ], 
+        "9374a30c-1c8b-40c1-b3d7-8a326519eac8-lib": [
+            "packages", 
+            "9374a30c-1c8b-40c1-b3d7-8a326519eac8-lib"
+        ]
+    }, 
+    "staticArgs": {
+        "browser": "browser_code/index.html"
+    }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "qooxdoo",
+  "version": "5.0.2",
+  "description": "Universal JavaScript Framework",
+  "author": "The qooxdoo project",
+  "license": "LGPL/EPL",
+  "homepage": "http://qooxdoo.org",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qooxdoo/qooxdoo"
+  },
+  "dependencies": {
+    "grunt": "^0.4.5",
+    "shelljs": "^0.3.0"
+  }
+}

@@ -1,0 +1,5 @@
+###> criax-sdk ###
+/var/cache/*
+/var/log/*
+/var/profile/*
+TODO.TXT

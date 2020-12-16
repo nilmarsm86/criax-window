@@ -1,0 +1,35 @@
+{
+    "export" : ["chrome"],
+    "jobs" :
+    {
+        "chrome" :
+        {
+            "desc" : "Set the environment for chrome application",
+            
+            "environment" :
+            {
+                "chrome.src" : "index.html",
+                "chrome.title" : "jsuml",
+                "chrome.accelerated" : true,
+                "chrome.disablechrome" : false,
+                "chrome.chromemargin" : "-1, -1, -1, -1",
+                "chrome.centerscreen" : true,
+                "chrome.hidechrome" : false,
+                "chrome.titlebar" : true,
+                "chrome.resizable" : true,
+                "chrome.minimizable" : true,
+                "chrome.close" : true,
+                "chrome.width" : 800,
+                "chrome.height" : 600,                
+                "chrome.border": "0px solid #000",                 
+                "chrome.borderradius": "0px 0px 0px 0px",                 
+                "chrome.background": "white",
+                "chrome.margin": "0px 0px 0px 0px",
+                "chrome.boxshadow": "0px 0px 0px #ccc",
+                "chrome.opacity": "1",                
+                "chrome.padding": "0px 0px 0px 0px",
+                "chrome.transform": "rotate(0deg) skew(0deg, 0deg)"
+            }
+        }
+    }
+}

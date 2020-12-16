@@ -1,0 +1,93 @@
+.title 
+{
+	font-weight: bold;
+	font-size: 14px;
+	text-align: middle;
+}
+
+.toolbarbutton
+{
+	font-size: 12px;
+}
+
+.toolbarbutton:active  
+{ 
+	font-weight: bold; 
+	font-size: 12px;
+	color: darkblue;
+}
+
+.toolbarbutton:hover  
+{ 
+	font-weight: bold; 
+	font-size: 12px;
+	color: darkblue;
+}
+
+tab {
+  -moz-appearance: none;
+  color: black;
+  font-weight: bold;
+  background: #E0DFE3!important;
+  background-color: #E0DFE3!important;
+}
+
+tab:not([selected=true]) {
+  -moz-appearance: tab;
+  font-weight: normal;
+  background-color: #FFFF84!important;
+}
+
+#uddiMainbox
+{
+	background-color: #FFFFFF;
+}
+
+#box_requestHeader
+{
+	background-color: #FFFFFF;
+}
+
+#box_requestBody
+{
+	background-color: #FFFFFF;
+}
+
+#box_responseHeader
+{
+	background-color: #FFFFFF;
+}
+
+#box_responseBody
+{
+	background-color: #FFFFFF;
+}
+
+#statusbox
+{
+	background-color: #FFFFFF;
+}
+
+#abouticon {
+list-style-image:url('chrome://soaclient/skin/logo24.png');
+}
+
+#authenticationicon {
+list-style-image:url('chrome://soaclient/skin/authentication16.png');
+}
+
+#wsicon {
+list-style-image:url('chrome://soaclient/skin/arrowred16.png');
+}
+
+#uddiicon {
+list-style-image:url('chrome://soaclient/skin/arrowblue16.png');
+}
+
+#advancedicon {
+list-style-image:url('chrome://soaclient/skin/arrowyellow16.png');
+}
+
+#doSearch {
+list-style-image:url('chrome://soaclient/skin/search16.png');
+}

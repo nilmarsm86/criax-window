@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type"text/css"?>
+<?xml-stylesheet href="chrome://browser/skin/browser.css" type="text/css"?>
+
+<?xml-stylesheet href="chrome://soaclient/skin/advanced.css" type"text/css"?>
+
+<!DOCTYPE page SYSTEM "chrome://soaclient/locale/soaclient.dtd">
+
+<window id="advanced" title="&soaclient.overlay.title;" 
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"  
+        xmlns:html="http://www.w3.org/1999/xhtml">
+
+  <script type="application/x-javascript" src="chrome://soaclient/content/advanced.js"/>
+  <script type="application/x-javascript" src="chrome://soaclient/content/gui/gui.js"/>
+  <script type="application/x-javascript" src="chrome://soaclient/content/httpproxy/httpproxy.js"/>
+  <script type="application/x-javascript" src="chrome://soaclient/content/httpproxy/base64.js"/>
+
+  <script>
+    <![CDATA[
+	   function loadAbout() {
+        window.openDialog("chrome://soaclient/content/about.xul","about","chrome,modal,dialog,resizable,centerscreen");
+      }
+    ]]>
+  </script>
+  
+  <vbox flex="1">
+	<toolbox>
+		<toolbar>
+			<toolbarbutton label="&soaclient.advanced.menu.WS;" class="toolbarbutton" id="wsicon" onclick="location.href='chrome://soaclient/content/webservices.xul'" />
+			<toolbarseparator/>      
+			<toolbarbutton label="&soaclient.advanced.menu.UDDI;" class="toolbarbutton" id="uddiicon" onclick="location.href='chrome://soaclient/content/uddi.xul'" />
+			<toolbarseparator/> 	  
+			<toolbarbutton label="&soaclient.advanced.menu.ADVANCED;" class="toolbarbutton" id="advancedicon" onclick="location.href='chrome://soaclient/content/advanced.xul'" />
+			<toolbarseparator/> 
+			<toolbarbutton label="&soaclient.about.title;" class="toolbarbutton" id="abouticon" onclick="loadAbout();" />
+		</toolbar>
+	</toolbox>
+  
+	<groupbox>
+		<caption class="title" label="&soaclient.advanced.title;"/>
+		<hbox>
+			<label value="&soaclient.advanced.url;" />
+			<textbox 	id="url" 
+						flex="8"
+						tabscrolling="true"
+						autocompletesearch="form-history"
+						autocompletesearchparam="advancedhistory"
+						enablehistory="true"
+						maxrows="8"
+						completeselectedindex="true"						
+						type="autocomplete"
+						autocompletepopup="PopupAutoComplete"
+						onkeypress="GUI.enterAdvanced(event);">
+			</textbox>
+			<button id="doSubmit" label="&soaclient.advanced.submit;" onclick="advancedClient.submit();" />
+		</hbox>
+		<hbox>
+			<label value="&soaclient.advanced.method;" />
+			<menulist id="requestMethod" style="height:24px" editable="true">
+			  <menupopup>
+				<menuitem label="POST" selected="true"/>
+			    <menuitem label="GET"/>
+			    <menuitem label="HEAD"/>
+				<menuitem label="TRACE"/>
+			    <menuitem label="OPTIONS"/>
+			  </menupopup>
+			</menulist>
+			<button label="&soaclient.advanced.authentication;" id="authenticationicon" onclick="advancedClient.doAuthentication();" />
+			<label value="&soaclient.advanced.communication;" />
+			<radiogroup orient="horizontal" >
+				<radio id="radiosync" orient="horizontal" label="&soaclient.advanced.radio.sync;">
+				</radio>
+				<radio id="radioasync" orient="horizontal" label="&soaclient.advanced.radio.async;" selected="true">
+				</radio>
+			</radiogroup>
+		</hbox>
+		<separator class="thin" flex="1" />
+		<hbox>
+			<caption label="&soaclient.advanced.headerbox.title;"/>
+			<textbox id="advancedHeaderbox" multiline="true" flex="1" height="200" value="Content-Type: text/xml"/>
+		</hbox>
+	</groupbox>
+
+	<tabbox flex="1" id="tab_box" selectedIndex="0">
+		<tabs>
+			<tab id="tab_requestBody" label="&soaclient.advanced.box.request.body.titel;"/> 
+		    <tab id="tab_responseHeader" label="&soaclient.advanced.box.response.header.titel;"/>
+		    <tab id="tab_responseBody" label="&soaclient.advanced.box.response.body.titel;"/>
+		</tabs>
+		<tabpanels flex="3">
+			<tabpanel id="tabpanel_requestBody" flex="1">
+		    	<textbox id="box_requestBody" value="&lt;!-- Please insert the request body, e.g. a SOAP message--&gt;" multiline="true" flex="1" oninput="advancedClient.requestBodyChange();"/>
+		    </tabpanel>
+			<tabpanel id="tabpanel_responseHeader" flex="1">
+		    	<textbox id="box_responseHeader" readonly="true" multiline="true" flex="1"/>
+		    </tabpanel>
+		    <tabpanel id="tabpanel_responseBody" flex="1">
+		    	<textbox id="box_responseBody" readonly="true" multiline="true" flex="1"/>
+		    </tabpanel>
+		</tabpanels>
+	</tabbox>
+	
+	<hbox>
+		<caption label="&soaclient.statusbox.title;"/>
+		<textbox id="statusbox" readonly="true" multiline="false" flex="1" editable="false"/>
+	</hbox>
+  </vbox>
+</window>

@@ -1,0 +1,8 @@
+content	soaclient chrome/content/
+skin    soaclient chrome/skin/
+locale	soaclient en-US chrome/locale/en-US/
+locale	soaclient wo-SN chrome/locale/wo-SN/
+#overlay chrome://browser/content/browser.xul	chrome://soaclient/content/overlay.xul
+overlay chrome://soaclient/content/webservices.xul	chrome://soaclient/content/overlay.xul
+style	chrome://global/content/customizeToolbar.xul	chrome://soaclient/skin/overlay.css
+style chrome://soaclient/content/webservices.xul chrome://soaclient/skin/overlay.css

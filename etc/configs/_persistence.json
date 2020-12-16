@@ -1,0 +1,31 @@
+{
+    "export" : ["persistence"],
+    "jobs" :
+    {
+        "persistence" :
+        {
+            "environment" :
+            {
+                //SCHEMA
+                "criax.persistence.map.dir" : "persistence",//ruta/por_defecto/resource/persistence/
+                "criax.persistence.map.name" : "",
+
+                //CONNECTION
+                "criax.persistence.db.driver" : "sqlite",//sqlite por defecto
+                "criax.persistence.db.name" : "",
+                "criax.persistence.db.path" : ""//ruta/por_defecto/resource/persistence/
+            },
+
+            //AUTOLOAD
+            "use" :
+            {
+                "cormxdesktop.Application" :
+                [
+                    "cormx.common.Connection",
+                    "cormx.dbal.DriverManager",
+                    "cormx.opm.EntityManager"
+                ]
+            }
+        }
+    }
+}

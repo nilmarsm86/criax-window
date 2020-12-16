@@ -1,0 +1,89 @@
+<!ENTITY soaclient.overlay.title "SOA Client for Mozilla Firefox">
+<!ENTITY soaclient.overlay.label "SOA Client">
+<!ENTITY soaclient.overlay.WS.label "Access Web Services">
+<!ENTITY soaclient.overlay.UDDI.label "Access UDDI Registries">
+<!ENTITY soaclient.overlay.ADVANCED.label "Advanced Access">
+
+<!ENTITY soaclient.webservices.menu.WS "Access Web Services">
+<!ENTITY soaclient.webservices.menu.UDDI "Access UDDI Registries">
+<!ENTITY soaclient.webservices.menu.ADVANCED "Advanced Access">
+<!ENTITY soaclient.webservices.title "Access Web Services">
+<!ENTITY soaclient.webservices.wsdladdress "WSDL Address:">
+<!ENTITY soaclient.webservices.doparse " Parse WSDL">
+<!ENTITY soaclient.webservices.browsefile " Browse...">
+<!ENTITY soaclient.webservices.communication "Communication: ">
+<!ENTITY soaclient.webservices.mainbox.title "Result:">
+<!ENTITY soaclient.webservices.box.wsdl.titel "Raw WSDL Data">
+<!ENTITY soaclient.webservices.box.request.header.titel "Raw Request Header">
+<!ENTITY soaclient.webservices.box.request.body.titel "Raw Request Body">
+<!ENTITY soaclient.webservices.box.response.header.titel "Raw Response Header">
+<!ENTITY soaclient.webservices.box.response.body.titel "Raw Response Body">
+<!ENTITY soaclient.webservices.radio.sync "sync">
+<!ENTITY soaclient.webservices.radio.async "async">
+<!ENTITY soaclient.webservices.authentication " Use Authentication">
+<!ENTITY soaclient.webservices.sendRequest " Invoke">
+
+<!ENTITY soaclient.uddi.menu.WS "Access Web Services">
+<!ENTITY soaclient.uddi.menu.UDDI "Access UDDI Registries">
+<!ENTITY soaclient.uddi.menu.ADVANCED "Advanced Access">
+<!ENTITY soaclient.uddi.title "Access UDDI Registries">
+<!ENTITY soaclient.uddi.categories "in">
+<!ENTITY soaclient.uddi.inquiryAddress "UDDI Inquiry API Address:">
+<!ENTITY soaclient.uddi.input "Search for:">
+<!ENTITY soaclient.uddi.search " Search">
+<!ENTITY soaclient.uddi.authentication " Use Authentication">
+<!ENTITY soaclient.uddi.browsefile "Browse">
+<!ENTITY soaclient.uddi.communication "Communication: ">
+<!ENTITY soaclient.uddi.version "UDDI API Version: ">
+<!ENTITY soaclient.uddi.mainbox.title "Search Result:">
+<!ENTITY soaclient.uddi.method "Method:">
+<!ENTITY soaclient.uddi.box.request.header.titel "Raw Request Header">
+<!ENTITY soaclient.uddi.box.request.body.titel "Raw Request Body">
+<!ENTITY soaclient.uddi.box.response.header.titel "Raw Response Header">
+<!ENTITY soaclient.uddi.box.response.body.titel "Raw Response Body">
+<!ENTITY soaclient.uddi.radio.sync "sync">
+<!ENTITY soaclient.uddi.radio.async "async">
+<!ENTITY soaclient.uddi.radio.uddiv1 "v1">
+<!ENTITY soaclient.uddi.radio.uddiv2 "v2">
+<!ENTITY soaclient.uddi.radio.uddiv3 "v3">
+
+<!ENTITY soaclient.advanced.menu.WS "Access Web Services">
+<!ENTITY soaclient.advanced.menu.UDDI "Access UDDI Registries">
+<!ENTITY soaclient.advanced.menu.ADVANCED "Advanced Access">
+<!ENTITY soaclient.advanced.title "Advanced Access">
+<!ENTITY soaclient.advanced.url "URL:">
+<!ENTITY soaclient.advanced.submit "  Submit">
+<!ENTITY soaclient.advanced.browsefile "Browse">
+<!ENTITY soaclient.advanced.method "HTTP Request Method:">
+<!ENTITY soaclient.advanced.box.wsdl.titel "Raw WSDL Data">
+<!ENTITY soaclient.advanced.box.request.header.titel "Raw Request Header">
+<!ENTITY soaclient.advanced.box.request.body.titel "Raw Request Body">
+<!ENTITY soaclient.advanced.box.response.header.titel "Raw Response Header">
+<!ENTITY soaclient.advanced.box.response.body.titel "Raw Response Body">
+<!ENTITY soaclient.advanced.authentication "Use Authentication">
+<!ENTITY soaclient.advanced.headerbox.title "HTTP Request Header:">
+<!ENTITY soaclient.advanced.radio.sync "sync">
+<!ENTITY soaclient.advanced.radio.async "async">
+<!ENTITY soaclient.advanced.authentication " Use Authentication">
+<!ENTITY soaclient.advanced.communication "Communication: ">
+
+<!ENTITY soaclient.authentication.title "Enter Authentication Information">
+<!ENTITY soaclient.authentication.username "Username:">
+<!ENTITY soaclient.authentication.key1 "U">
+<!ENTITY soaclient.authentication.password "Password:">
+<!ENTITY soaclient.authentication.key2 "P">
+
+<!ENTITY soaclient.about.title "About">
+<!ENTITY soaclient.about.createdby "Created by:">
+<!ENTITY soaclient.about.supportedby "Supported by:">
+<!ENTITY soaclient.about.address "Address:">
+<!ENTITY soaclient.about.website "Website: ">
+<!ENTITY soaclient.about.copyright " Copyright (C) 2009-2011">
+<!ENTITY soaclient.about.licensetext "This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program, if not, see http://www.gnu.org/licenses/ ">
+<!ENTITY soaclient.about.license " License:">
+<!ENTITY soaclient.about.detail " Details ">
+<!ENTITY soaclient.about.english "English">
+<!ENTITY soaclient.about.german "German">
+<!ENTITY soaclient.about.libraries " Used libraries and icons:">
+
+<!ENTITY soaclient.statusbox.title "Status:">

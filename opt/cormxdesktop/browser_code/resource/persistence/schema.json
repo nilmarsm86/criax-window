@@ -1,0 +1,207 @@
+{
+    entities : [
+		//PROYECTO
+        {
+            clazz : "cormxdesktop.entity.Workspace",
+            table : "workspace",
+            fields : {
+                id : {column:"id_workspace",type:"integer",primaryKey:true,autoIncrement:true,unique:true},
+                path : {type:"string",length:250},
+				state : {column:"workspace_state",type:"integer",length:2}
+            },
+			events : 
+            {
+                preInsert : {method:"checkPath",data:["path"]}                
+            }  	
+        },
+		
+		{
+            clazz : "cormxdesktop.entity.Proyect",
+            table : "proyect",
+            fields : {
+                id : {column:"id_proyect",type:"integer",primaryKey:true,autoIncrement:true,unique:true},
+                name : {type:"string",length:50,unique:true}, 
+				db : {column:"db_path",type:"string",length:250},
+				criaxProyectPath : {column:"proyect_path",type:"string",length:250},
+				state : {column:"proyect_state",type:"integer",length:2},
+				workspace : {column:"workspace_id",type:"object",length:5} 
+            },
+			associations : {
+                one_many : [
+                    {clazz : "cormxdesktop.entity.Workspace",field : "id",attribute : "workspace"}
+                ]
+            },
+            events : 
+            {
+                preInsert : {method:"checkProyect",data:["name","workspace"]}                
+            }  
+        },
+       
+        {
+            clazz : "cormxdesktop.entity.Schema",
+            table : "schema",
+            fields : {
+                id : {column:"id_schema",type:"integer",primaryKey:true,autoIncrement:true,unique:true},
+                name : {column:"file_name",type:"string",length:50},				
+				proyect : {column:"proyect_id",type:"object",length:5}
+            },
+			associations : {
+                one_many : [
+                    {clazz : "cormxdesktop.entity.Proyect",field : "id",attribute : "proyect"}
+                ]
+            },
+            events : 
+            {
+                preInsert : {method:"checkEmptySchema",data:["proyect"]}                
+            } 	
+        },
+		//TABLAS Y ATRIBUTOS
+		{
+            clazz : "cormxdesktop.entity.Entity",
+            table : "entity",
+            fields : {
+                id : {column:"id_entity",type:"integer",primaryKey:true,autoIncrement:true,unique:true},
+                schema : {column:"schema_id",type:"object",length:5},
+				table : {column:"table_name",type:"string",length:20},
+				claxx : {type:"string",length:50},
+				finder : {type:"string",length:50},
+				fixture : {type:"string",length:50},
+				im : {type:"string",length:50},
+				mapper : {type:"string",length:50},
+            },
+			associations : {
+                one_many : [
+                    {clazz : "cormxdesktop.entity.Schema",field : "id",attribute : "schema"}
+                ]
+            },
+            events : 
+            {
+                preInsert : {method:"checkEntity",data:["schema","table"]}//que en el mismo esquema no se repita la entidad                
+            } 	
+        },
+		
+		{
+            clazz : "cormxdesktop.entity.DataType",
+            table : "data_type",
+            fields : {
+                id : {column:"id_data_type",type:"integer",primaryKey:true,autoIncrement:true,unique:true},
+                name : {column:"data_type",type:"string",length:50}				
+            },
+			events : 
+            {
+                preInsert : {method:"checkName",data:["name"]}                
+            } 	
+        },
+		
+		{
+        	clazz : "cormxdesktop.entity.Attribute",
+            table : "attribute",
+            fields : {
+                id : {column:"id_attribute",type:"integer",primaryKey:true,autoIncrement:true,unique:true},
+                entity : {column:"entity_id",type:"object",length:5},
+				name : {type:"string",length:50},
+				col : {type:"string",length:50},
+				data : {column:"data_type_id",type:"object",length:5},
+				primaryKey : {column:"primary_key",type:"integer",length:2,defaultValue:"0"},
+				notNull : {column:"not_null",type:"integer",length:2,defaultValue:"1"},
+				defaultValue : {column:"default_value",type:"string",length:250,notNull:false},
+				unique : {column:"unique_value",type:"integer",length:2,defaultValue:0},
+				accessor : {type:"string",length:100},
+				mutator : {type:"string",length:100},
+				autoIncrement : {column:"auto_increment",type:"integer",length:2,defaultValue:"0"},
+				length : {type:"integer",length:3,defaultValue:"0"}
+            },
+			associations : {
+                one_many : [
+                    {clazz : "cormxdesktop.entity.Entity",field : "id",attribute : "entity"},
+					{clazz : "cormxdesktop.entity.DataType",field : "id",attribute : "data"}
+                ]
+            }	
+        },
+		//EVENTOS
+		{
+            clazz : "cormxdesktop.entity.EventType",
+            table : "event_type",
+            fields : {
+                id : {column:"id_event_type",type:"integer",primaryKey:true,autoIncrement:true,unique:true},
+                name : {column:"event_type",type:"string",length:50}				
+            },
+			events : 
+            {
+                //preInsert : {method:"checkName",data:["name"]}                
+            } 	
+        },
+		
+		{
+            clazz : "cormxdesktop.entity.Event",
+            table : "event",
+            fields : {
+                id : {column:"id_event",type:"integer",primaryKey:true,autoIncrement:true,unique:true},                
+				type : {column:"event_type_id",type:"object",length:5},
+				method : {type:"string",length:50},
+				entity : {column:"entity_id",type:"object",length:5}
+            },
+			associations : {
+                one_many : [
+                    {clazz : "cormxdesktop.entity.Entity",field : "id",attribute : "entity"},
+					{clazz : "cormxdesktop.entity.EventType",field : "id",attribute : "type"}
+                ]
+            }	
+        },
+		
+		{
+            clazz : "cormxdesktop.entity.EventData",
+            table : "event_data",
+            fields : {
+                id : {column:"id_event_data",type:"integer",primaryKey:true,autoIncrement:true,unique:true},
+                attributeName : {column:"attribute_id",type:"object",length:5},//nombre del atributo				
+				event : {column:"event_id",type:"object",length:5}
+            },
+			associations : {
+                one_many : [
+                    {clazz : "cormxdesktop.entity.Event",field : "id",attribute : "event"},
+					{clazz : "cormxdesktop.entity.Attribute",field : "id",attribute : "attributeName"}
+                ]
+            }
+        },
+		//RELACIONES
+		{
+            clazz : "cormxdesktop.entity.RelationType",
+            table : "relation_type",
+            fields : {
+                id : {column:"id_relation_type",type:"integer",primaryKey:true,autoIncrement:true,unique:true},
+                name : {column:"relation_type",type:"string",length:50}				
+            },
+			events : 
+            {
+                //preInsert : {method:"checkName",data:["name"]}                
+            } 	
+        },
+		
+		{
+            clazz : "cormxdesktop.entity.Relation",
+            table : "relation",
+            fields : {
+                id : {column:"id_relation",type:"integer",primaryKey:true,autoIncrement:true,unique:true},                
+				foreignEntity : {column:"foreign_entity",type:"object",length:2},
+				foreignAttribute : {column:"foreign_attribute",type:"object",length:2},
+				attribute : {column:"attribute_id",type:"object",length:2},
+				type : {column:"relation_type_id",type:"object",length:2},	
+                entity : {column:"entity_id",type:"object",length:2}				
+            },
+			associations : {
+                one_many : [
+                    {clazz : "cormxdesktop.entity.Entity",field : "id",attribute : "foreignEntity"},
+					{clazz : "cormxdesktop.entity.Entity",field : "id",attribute : "entity"},
+					{clazz : "cormxdesktop.entity.RelationType",field : "id",attribute : "type"},
+					{clazz : "cormxdesktop.entity.Attribute",field : "id",attribute : "foreignAttribute"},
+					{clazz : "cormxdesktop.entity.Attribute",field : "id",attribute : "attribute"}	
+                ]
+            },
+            events : 
+            {
+                //preInsert : {method:"checkRelation",data:["foreignEntity","foreignAttribute","entity","attribute","type"]}                
+            }   	
+        }
+    ]
+}

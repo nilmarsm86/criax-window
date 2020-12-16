@@ -1,0 +1,19 @@
+{
+    "export" : ["inc_lib"],
+    "jobs" :
+    {
+        // Uncomment the following entry to add a contrib or library to your
+        // project; make sure to adapt the path to the Manifest.json; if you are
+        // using a contrib: library, it will be downloaded into the path specified
+        // by the 'cache/downloads' config key
+        "inc_lib" :
+        {
+            "desc" : "includer job, to hold the essential libraries for the compile jobs",
+            
+            "library" :
+            [
+                {"manifest" : "../dialog/Manifest.json"}                
+            ]
+        }
+    }
+}

@@ -1,0 +1,7 @@
+//cuando se cirra la aplicacion ejecutar qx.core.ObjectRegistry.shutdown()
+//minimizar
+//maximizar
+//l estado de la appl
+//cerrar
+//reiniciar
+//

@@ -1,0 +1,25 @@
+<!DOCTYPE>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>UML Diagram</title>
+    <link type="text/css" rel="stylesheet" href="css/UDStyle.css" media="screen">
+    <script type="text/javascript" src="js/UDCore.js"></script>
+    <script type="text/javascript" src="js/UDModules.js"></script>
+    <script type="text/javascript" src="js/UDApplication.js"></script>
+    <script type="text/javascript">
+        window.onload = function() {
+           var app = new Application( { id: 'umldiagram', width: (window.outerWidth - 250), height: 720 } );
+        };
+
+        window.onresize = function(){
+            window.document.getElementById('ud_diagram_div').style.width = (window.outerWidth - 250);
+            var canvas = window.document.getElementsByTagName('canvas');
+            for(var i=0;i<canvas.length;i++){
+                canvas[i].width = (window.outerWidth - 250);
+            }
+        };
+    </script>
+  </head>
+  <body>
+    <div id="umldiagram"></div>
+</body></html>

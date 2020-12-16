@@ -1,0 +1,1 @@
+{"attributes": {"fullName": "qx.ui.form.renderer.IFormRenderer", "packageName": "qx.ui.form.renderer", "isStatic": true, "name": "IFormRenderer", "implementations": "dialog.FormRenderer"}, "type": "class"}

@@ -1,0 +1,1 @@
+basarme en el json de los servicios para agregar los constraints a atributos y metodos

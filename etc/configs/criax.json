@@ -1,0 +1,57 @@
+{
+    "export" : ["beauty", "clean-all", "validate", "white-space"],
+    "jobs" :
+    {
+        "beauty" :
+        {
+          "desc"   : "beauty-formatting of the source code of the current library, (include pretty-formatting)",
+          "extend" : ["pretty"],
+          "pretty-print" :
+          {
+            "general" : {"indent-string" : "    "},
+            "comments" :
+            {
+              "block" : {"add" : "true"},
+              "trailing" :
+              {
+                "keep-column" : "false",
+                "comment-cols" : ["50", "70", "90"],
+                "padding" : " "
+              }
+            },
+            "code" :
+            {
+              "align-with-curlies" : false,
+              "open-curly" :
+              {
+                "newline-before" : "a",
+                "indent-before" : false
+              }
+            }
+          }
+        },
+
+        "clean-all" :
+        {
+          "desc" : "clean and destclean all",
+          "run"  : ["clean","distclean"],
+        },
+
+        "validate" :
+        {
+          "desc" : "vaidate libraries and Manifests",
+          "run"  : ["validate-config","validate-manifest"],
+        },
+
+        "white-space" :
+        {
+          "desc"   : "formatting whitespace in .js files of the current library, (include fix)",
+          "extend" : ["fix"],
+          "fix-files" :
+          {
+            "eol-style" : "LF",
+            "tab-width" : 4
+          }
+        }
+    }
+}

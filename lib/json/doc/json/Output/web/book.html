@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="author" content="Nilmar Sanchez Muguercia" />
+    <meta name="date" content="05/06/2017"/>
+    <meta name="generator" content="easybook 4.8"/>
+
+    <title>Componente Json</title>
+
+    <link rel="stylesheet" href="./css/easybook.css" />
+
+</head>
+
+<body><div class="container">
+
+    <div class="item item:cover">
+
+<h1>Componente Json</h1>
+
+<h2>Nilmar Sanchez Muguercia</h2>
+
+</div>
+    <div class="item item:introduction">
+
+<h1>Introducci&oacute;n</h1>
+
+<p><span class='nota'><strong>NOTA:</strong> El componente Json nos permite transformar un modelo Qx en un string json salvandolo en un archivo y vicevesa.</span></p>
+
+<p>Normalmente si deseamos transformar un string en un objeto js utilizamos parse y para el caso contrario stringify. En CRIAX-SDK vamos un poco mas alla, pues podemos leer la informaicion de un archivo *.json y transformarla en un modelo Qx o salvar un modelo Qx en un archivo json.</p>
+
+<h1 id="instalacioacuten">Instalaci&oacute;n</h1>
+
+<p>Para utilizar este componente en la aplicacion, debemos agregarlo en la configuracion de la misma. Una vez que tenemos creada la aplicacion, vamos a la configuracion de librerias <strong>config->libraries.json</strong>:</p>
+
+<div class="code javascript">
+<pre class="javascript"><span class="br0">&#123;</span><span class="st0">&quot;manifest&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;${QOOXDOO_PATH}/component/library/json/Manifest.json&quot;</span><span class="br0">&#125;</span></pre>
+</div>
+
+<h1 id="utilizacioacuten">Utilizaci&oacute;n</h1>
+
+<p>Donde deseamos utilizar el componente json, solo tenemos que llamar a json.Json.parse o json.Json.stringify</p>
+
+<h1 id="como-utilizar-el-componente-desde-el-json">Como utilizar el componente desde el Json</h1>
+
+<div class="code javascript">
+<pre class="javascript"><span class="kw1">var</span> data <span class="sy0">=</span> <span class="st0">'{&quot;a&quot;:10,&quot;b&quot;:[4,16],&quot;c&quot;:true,&quot;d&quot;:&quot;string&quot;}'</span><span class="sy0">;</span>
+<span class="kw1">var</span> reviver <span class="sy0">=</span> <span class="kw1">function</span><span class="br0">&#40;</span>key<span class="sy0">,</span> value<span class="br0">&#41;</span> <span class="br0">&#123;</span>
+    <span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw1">typeof</span> value <span class="sy0">===</span> <span class="st0">'number'</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+        value <span class="sy0">=</span> <span class="nu0">2</span> <span class="sy0">*</span> value<span class="sy0">;</span>
+    <span class="br0">&#125;</span>
+    <span class="kw1">return</span> value<span class="sy0">;</span>
+<span class="br0">&#125;</span><span class="sy0">;</span>
+<span class="kw1">var</span> result <span class="sy0">=</span> json.<span class="me1">Json</span>.<span class="me1">parse</span><span class="br0">&#40;</span>data<span class="sy0">,</span> reviver<span class="br0">&#41;</span><span class="sy0">;</span></pre>
+</div>
+
+<ul>
+<li>como personalizar el funcionamieto del componente con los builders y decoradores</li>
+</ul>
+
+
+</div>
+
+</div></body>
+</html>

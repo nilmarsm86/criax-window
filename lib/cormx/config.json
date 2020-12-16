@@ -1,0 +1,33 @@
+{
+  "name"    : "cormx",
+
+  "include" : [{"path" : "${QOOXDOO_PATH}/tool/data/config/application.json"}],
+
+  "export" : ["api","api-data","build","clean","distclean","fix","info","inspector",
+    "lint","migration","pretty","profiling","source","source-all","source-hybrid",    
+    "simulation-build","simulation-run","test","test-source","translation"],
+
+  "let" :
+  {
+    "APPLICATION"  : "cormx",
+    "QOOXDOO_PATH" : "../../..",
+    "QXTHEME"      : "cormx.theme.Theme",
+    "API_EXCLUDE"  : ["qx.*", "${APPLICATION}.theme.*", "${APPLICATION}.test.*", "${APPLICATION}.simulation.*","criax.*"],
+    "LOCALES"      : [ "en", "es" ],
+    "CACHE"        : "../../../build/cache",
+    "ROOT"         : "."
+  },
+
+  "jobs" :
+  {
+    "libraries" : 
+    {
+      "library" :
+      [
+        {
+          "manifest" : "${QOOXDOO_PATH}/criax/Manifest.json"
+        }          
+      ]
+    }
+  }
+}

@@ -1,0 +1,14 @@
+#soaclienticon 
+{  
+	list-style-image: url('chrome://soaclient/skin/logo.png');  
+}
+
+#icsicon 
+{  
+	list-style-image: url('chrome://soaclient/skin/ics_logo.png');  
+}  
+
+#iasicon 
+{  
+	list-style-image: url('chrome://soaclient/skin/ias_logo.png');  
+}

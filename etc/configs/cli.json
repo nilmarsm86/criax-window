@@ -1,0 +1,139 @@
+{
+    //"export" : ["basic-common", "source", "build-script", "build-resources", "build-files", "library", "run", "run-source", "run-build", "test", "test-source", "api-data", "dependencies"],
+    "export" : ["basic-common", "source", "test", "test-source", "api-data", "dependencies"],
+    "jobs" :
+    {
+        "basic-common" :
+        {
+          "config-warnings" :
+          {
+            "exclude" :
+            [
+              "qx.event.GlobalError",
+              "qx.core.Init"
+            ]
+          },
+
+          "library" :
+          [
+            {
+              "manifest" : "${QOOXDOO_PATH}/framework/Manifest.json"
+            }
+          ],
+
+          "extend" : [ "cache" ],
+
+          "=include" :
+          [
+            //"qx.Class",
+            //"qx.Mixin",
+            //"qx.Interface",
+            "qx.core.BaseInit",
+            "${APPLICATION}.Application"
+          ],
+
+          "exclude" :
+          [
+            "qx.event.GlobalError",
+            "qx.core.Init"
+          ],
+
+          "environment" :
+          {
+            "qx.aspects" : false,
+            "qx.globalErrorHandling" : false
+          },
+
+          "compile-options" :
+          {
+            "paths" :
+            {
+              "app-root" : ".",
+              "loader-template" : "./etc/tpl/basic.loader.js"
+            },
+            "uris" :
+            {
+              "script"   : ".",
+              "resource" : "."
+            }
+          }
+        },
+
+        "source" :
+        {
+          "desc" : "create source version of current application",
+          "extend" : [ "basic-common" ],
+          //"environment" :
+          //{
+          //  "qx.debug" : true
+          //},
+          "compile-options" :
+          {
+            "paths" : { "app-root" : "./source/script" }
+          }
+        },
+
+        /*"library" :
+        {
+          "desc" : "create a local 'server' library",
+          "extend" : ["server::build-min"],
+          "let" : {
+            "BUILD_PATH" : "${ROOT}/script",
+            "SFILES_VERSION_PART" : "-${QOOXDOO_VERSION}"
+          }
+        },
+
+        "run" :
+        {
+          "shell" : {
+            "command" : "java -cp js.jar org.mozilla.javascript.tools.shell.Main ${BUILD}/script/appcliw17.js"
+          }
+        },
+
+        "run-source" :
+        {
+          "extend" : ["run"],
+          "let"    : { "BUILD" : "source" }
+        },
+
+        "run-build" : {
+          "extend" : ["run"],
+          "let"    : { "BUILD" : "build" }
+        },*/
+
+        "test" :
+        {
+          "extend" : ["test-basic"]
+        },
+
+        "test-source" :
+        {
+          "desc" : "create a basic (server-side/headless) test runner app for unit tests (source version) of the current library",
+
+          "extend" : ["testrunner-cli::source-basic"],
+
+          "let" :
+          {
+            "TESTRUNNER_ROOT" : "${QOOXDOO_PATH}/../../lib/testrunner",
+            "TEST_INCLUDE"    : "${APPLICATION}.test.*",
+            "BUILD_PATH"      : "${ROOT}/test",
+            "TESTRUNNER_MAIN_CLASS" : "testrunner.ApplicationCli"
+          }
+        },
+
+        "api-data" :
+        {
+          "let" :
+          {
+            //"API_INCLUDE" : ["qx.core.BaseInit", "${APPLICATION}.Application"],
+            "API_INCLUDE" : ["${APPLICATION}.Application"],
+            //"API_EXCLUDE" : ["qx.test.*", "${APPLICATION}.test.*", "qx.bom.*", "qx.dom.*"]
+          }
+        },
+
+        "dependencies" :
+        {
+          "=exclude" : [ "${APPLICATION}.test.*" ]
+        }
+    }
+}

@@ -1,0 +1,10 @@
+toolbar[iconsize="small"] #soaclient-toolbar-button > .toolbarbutton-icon {
+  list-style-image: url("chrome://soaclient/skin/logo16.png");
+  -moz-image-region: rect(0px 16px 16px 0px);
+  width: 16px;
+  height: 16px;
+}
+#soaclient-toolbar-button {
+  list-style-image: url("chrome://soaclient/skin/logo24.png");
+  -moz-image-region: rect(0px 26px 24px 0px);
+}

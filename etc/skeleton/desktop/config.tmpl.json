@@ -1,0 +1,85 @@
+{
+  "name"    : "${Name}",
+
+  "include" :
+  [
+    //PLATAFORM
+    {"path" : "$${QOOXDOO_PATH}/tool/data/config/application.json"},
+    {"path" : "$${QOOXDOO_PATH}/../../lib/inspector/inspector.json", "as"   : "inspector"},
+    {"path" : "$${QOOXDOO_PATH}/../../lib/testrunner/testrunner.json", "as" : "testrunner-opt"},
+    //APP
+    {"path" : "$${ROOT}/etc/configs/enviroment.json"},
+    {"path" : "$${ROOT}/etc/configs/chrome.json"},
+    //CRIAX
+    {"path" : "$${QOOXDOO_PATH}/../../etc/configs/criax.json"},
+    {"path" : "$${QOOXDOO_PATH}/../../etc/configs/gui.json"}    
+  ],
+
+  "export" :
+  [
+    //PLATAFORM
+    "api",
+    "build",
+    "clean",
+    "distclean",
+    //"dependencies",
+    "fix",
+    "info",
+    "lint",
+    "pretty",
+    "profiling",
+    "source",
+    "test-source",
+    "translation",
+    "validate-config",
+    "validate-manifest",
+    //CRIAX
+    "generate",
+    "update",
+    "prebuild",
+    "package",
+    "beauty",    
+    "white-space",
+    "inspector",
+    "test-cli",
+    "clean-all",
+    "validate",
+    //APP
+    "app-package",
+    "app-prebuild",
+    "app-update"
+  ],
+
+  "let" :
+  {
+    "APPLICATION"  : "${Namespace}",
+    "QOOXDOO_PATH" : "${REL_QOOXDOO_PATH}",
+    "QXTHEME"      : "${Namespace}.theme.Theme",
+    "API_EXCLUDE"  : ["$${APPLICATION}.theme.*", "$${APPLICATION}.test.*", "qx.*", "$${APPLICATION}.simulation.*", "criax.*", "cormx.*", "accordion.*", "collapsablepanel.*", "combotable.*", "dialog.*", "logpane.*", "mutablelist.*", "tokenfield.*", "versionlabel.*"],
+    "LOCALES"      : [ "en" ],
+    "CACHE"        : "./var/cache",
+    "ROOT"         : ".",
+    "ENGINE"       : "gecko"
+  },
+
+  // You only need to edit the remainder of this file, if you want to customize
+  // specific jobs, or add own job definitions.
+
+  "jobs" :
+  {
+    "app-package" :
+    {
+      "run" : ["package", "build"]
+    },
+
+    "app-prebuild" :
+    {
+      "run" : ["prebuild", "build"]
+    },
+
+    "app-update" :
+    {
+      "run" : ["update", "source"]
+    }
+  }
+}

@@ -1,0 +1,22 @@
+/****** SERVICIOS PARA LA PERSISTENCIA *********/
+{
+    services : [
+        //servicio para cargar los datos de la coneccion a la bd
+        {
+            id:"connection",
+            clazz:"cormx.common.Connection",
+            singleton:true,
+            call:{1:["load"]} 
+        },
+        //servicio para utilizar la capa de abstraccion de bd
+        {
+            id:"dbal",
+            clazz:"cormx.dbal.DriverManager"
+        },
+        //servicio del entity manager
+        {
+            id:"entityManager",
+            clazz:"cormx.opm.EntityManager"
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+  "info" : 
+  {
+    "name" : "json",
+
+    "summary" : "De Json a modelo Qx y viceversa.",
+    "description" : "transformar un modelo Qx en un string json salvandolo en un archivo y vicevesa",
+    
+    "homepage" : "http://",
+
+    "license" : "MPL",
+    "authors" : 
+    [
+      {
+        "name" : "Nilmar Sanchez Muguercia",
+        "email" : "nilmar@uci.cu, nilmar@isla-paradiso.net, nilmar.sanchez@nauta.cu"
+      }
+    ],
+
+    "version" : "1.0.0",
+    "qooxdoo-versions": ["5.0"],
+    "criax" : "2.0"
+  },
+  
+  "provides" : 
+  {
+    "namespace"   : "json",
+    "encoding"    : "utf-8",
+    "class"       : "source/class",       
+    "resource"    : "source/resource",
+    "translation" : "source/translation",
+    "type"        : "application"
+  }
+}

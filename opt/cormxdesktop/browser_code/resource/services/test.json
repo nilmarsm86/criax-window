@@ -1,0 +1,80 @@
+/****** SERVICIOS PARA LOS TEST *********/
+{
+    services : [
+        {
+            id:"demo",
+            clazz:"cormxdesktop.test.DemoTest",
+        },
+		
+		{
+            id:"filesystem",
+            clazz:"cormxdesktop.test.unitario.file.FileSystemTest"
+        },
+        
+        {
+            id:"persist",
+            clazz:"cormxdesktop.test.unitario.persist.PersistTest"
+        },
+        
+        {
+            id:"workspace",
+            clazz:"cormxdesktop.test.integracion.WorkspaceTest"
+        },
+		
+		{
+            id:"proyect",
+            clazz:"cormxdesktop.test.integracion.ProyectTest"
+        },
+        
+        {
+            id:"testdatatype",
+            clazz:"cormxdesktop.test.unitario.persist.DataTypeTest"
+        },
+        
+        {
+            id:"testconnect",
+            clazz:"cormxdesktop.test.unitario.scanner.ConnectTest"
+        },
+        
+        {
+            id:"testdb",
+            clazz:"cormxdesktop.test.unitario.scanner.DataBaseTest"
+        },
+        
+        {
+            id:"testquerymetadata",
+            clazz:"cormxdesktop.test.unitario.scanner.QueryMetaDataTest"
+        },
+                
+        //servicio del Testrunner (debe ser el ultimo servicio de los test)
+        {
+            id:"testrunner",
+            clazz:"criax.unit.TestRunner",
+            //arguments:["true"],//si se para al primer error            
+            call:{
+                //1:["addClass","@demo"],//agregar una clase a testear
+                //2:["skipMethods","testAdvanced"],//saltarce este metodo para no testear
+				//DE LOS MODELOS
+                //3:["addClass","@filesystem"],//agregar una clase a testear
+                //3.1:["skipMethods","testWrongDb"],
+                //3.2:["skipMethods","testCreationDir"],
+                //3.3:["skipMethods","testCreationExistDir"],
+                //3.4:["skipMethods","testCreationWorkspaceFileSystem"],
+                //3.5:["skipMethods","testCreationProyectFileSystem"]
+                6:["addClass","@persist"],
+                6.1:["skipMethods","testCreateWorkspaceDb"],
+                6.2:["skipMethods","testCreateWorkspaceDbException"],
+                6.3:["skipMethods","testActiveWorkspace"],
+                6.4:["skipMethods","testFormatPathWorkspace"],
+                6.5:["skipMethods","testCreateProyectDb"],
+                6.6:["skipMethods","testActiveProyect"]                             
+                //8:["addClass","@workspace"],
+				//9:["addClass","@proyect"],
+                //10:["addClass","@testdatatype"],
+                //11:["addClass","@testconnect"],
+                //12:["addClass","@testdb"],
+                //13:["addClass","@testquerymetadata"]
+                }
+        }
+    ]
+}

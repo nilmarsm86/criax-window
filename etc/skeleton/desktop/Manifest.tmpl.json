@@ -1,0 +1,36 @@
+{
+  "info" :
+  {
+    "name" : "${Name}",
+
+    "summary" : "Custom Application",
+    "description" : "This is a skeleton for a custom application with CRIAX-SDK.",
+
+    "category" : ["tool"],
+
+    "homepage" : "http://some.homepage.url/",
+
+    "license" : "MPL",
+    "authors" :
+    [
+      {
+        "name" : "First Author (uid)",
+        "email" : "first.author@some.domain"
+      }
+    ],
+
+    "version" : "master",
+    "qooxdoo-versions": ["${QOOXDOO_VERSION}"],
+    "criax" : "2.0"
+  },
+
+  "provides" :
+  {
+    "namespace"   : "${Namespace}",
+    "encoding"    : "utf-8",
+    "class"       : "source/class",
+    "resource"    : "source/resource",
+    "translation" : "source/translation",
+    "type"        : "application"
+  }
+}

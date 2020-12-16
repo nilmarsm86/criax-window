@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type"text/css"?>
+<?xml-stylesheet href="chrome://browser/skin/browser.css" type="text/css"?>
+
+<?xml-stylesheet href="chrome://soaclient/skin/uddi.css" type"text/css"?>
+
+<!DOCTYPE page SYSTEM "chrome://soaclient/locale/soaclient.dtd">
+
+<window id="uddi" title="&soaclient.overlay.title;" 
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"  
+        xmlns:html="http://www.w3.org/1999/xhtml">
+
+  <script type="application/x-javascript" src="chrome://soaclient/content/uddi.js"/>
+  <script type="application/x-javascript" src="chrome://soaclient/content/gui/gui.js"/>
+  <script type="application/x-javascript" src="chrome://soaclient/content/httpproxy/httpproxy.js"/>
+  <script type="application/x-javascript" src="chrome://soaclient/content/soapgenerator/soapgenerator.js"/>
+  <script type="application/x-javascript" src="chrome://soaclient/content/soapparser/soapparser.js"/>
+
+  <script>
+    <![CDATA[
+	   function loadAbout() {
+        window.openDialog("chrome://soaclient/content/about.xul","about","chrome,modal,dialog,resizable,centerscreen");
+      }
+    ]]>
+  </script>
+  
+  <vbox flex="1">
+	<toolbox>
+		<toolbar>
+			<toolbarbutton label="&soaclient.uddi.menu.WS;" class="toolbarbutton" id="wsicon" onclick="location.href='chrome://soaclient/content/webservices.xul'" />
+			<toolbarseparator/>      
+			<toolbarbutton label="&soaclient.uddi.menu.UDDI;" class="toolbarbutton" id="uddiicon" onclick="location.href='chrome://soaclient/content/uddi.xul'" />
+			<toolbarseparator/> 	  
+			<toolbarbutton label="&soaclient.uddi.menu.ADVANCED;" class="toolbarbutton" id="advancedicon" onclick="location.href='chrome://soaclient/content/advanced.xul'" />
+			<toolbarseparator/> 
+			<toolbarbutton label="&soaclient.about.title;" class="toolbarbutton" id="abouticon" onclick="loadAbout();" />
+		</toolbar>
+	</toolbox>
+  
+	<groupbox>
+		<caption class="title" label="&soaclient.uddi.title;"/>
+		<hbox>
+			<label value="&soaclient.uddi.inquiryAddress;" />
+			<textbox 	id="inquiryaddress" 
+						flex="8"
+						tabscrolling="true"
+						autocompletesearch="form-history"
+						autocompletesearchparam="uddihistory"
+						showcommentcolumn="false"
+						enablehistory="true"
+						maxrows="8"
+						completeselectedindex="true"
+						type="autocomplete"
+						autocompletepopup="PopupAutoComplete"
+						onkeypress="GUI.enterUDDI(event);">
+			</textbox>
+			<button id="doSearch" label="&soaclient.uddi.search;" onclick="uddiClient.doSearch();" />
+		</hbox>
+		<hbox>
+			<label value="&soaclient.uddi.input;" />
+			<textbox 	id="query" 
+						flex="8"
+						tabscrolling="true"
+						autocompletesearch="form-history"
+						autocompletesearchparam="searchhistory"
+						enablehistory="true"
+						maxrows="8"
+						completeselectedindex="true"
+						type="autocomplete"
+						autocompletepopup="PopupAutoComplete"
+						keytype=""
+						key=""
+						value=""
+						DOMAttrModified="if(event.attrName == 'value'){alert('changed');}">
+			</textbox>
+			<label value="&soaclient.uddi.categories;" />
+			<menulist id="requestMethod" style="height:24px" editable="true">
+			  <menupopup>
+				<menuitem label="Business Names" value="Business Names" id="method_businessnames" selected="true"/>
+			    <menuitem label="Service Names" value="Service Names" id="method_servicenames" />
+			    <menuitem label="Service Types (tModel)" value="Service Types (tModel)" id="method_servicetypes" />
+				<menuitem label="Business Details using Business Key" value="Business Details using Business Key" id="method_businessdetails"/>
+				<menuitem label="Service Details using Service Key" value="Service Details using Service Key" id="method_servicedetails"/>
+				<menuitem label="tModel Details using tModel Key" value="tModel Details using tModel Key" id="method_tmodeldetails"/>
+			  </menupopup>
+			</menulist>
+		</hbox>
+		<hbox>
+			<button label="&soaclient.uddi.authentication;" id="authenticationicon" onclick="uddiClient.doAuthentication();" />
+			<label value="&soaclient.uddi.communication;" />
+			<radiogroup orient="horizontal" >
+				<radio id="radiosync" orient="horizontal" label="&soaclient.uddi.radio.sync;">
+				</radio>
+				<radio id="radioasync" orient="horizontal" label="&soaclient.uddi.radio.async;" selected="true">
+				</radio>
+			</radiogroup>
+			<separator class="thin" flex="1" />
+			<label value="&soaclient.uddi.version;" />
+			<radiogroup orient="horizontal" >
+				<radio id="uddiv1" orient="horizontal" label="&soaclient.uddi.radio.uddiv1;">
+				</radio>
+				<radio id="uddiv2" orient="horizontal" label="&soaclient.uddi.radio.uddiv2;" selected="true">
+				</radio>
+				<radio id="uddiv3" orient="horizontal" label="&soaclient.uddi.radio.uddiv3;">
+				</radio>
+			</radiogroup>
+		</hbox>
+		<separator class="thin" flex="1" />
+	</groupbox>
+	
+	<hbox>
+		<caption label="&soaclient.uddi.mainbox.title;"/>
+		<iframe id="uddiMainbox" type="content" src="chrome://soaclient/content/result/uddiresult.xhtml" flex="1" height="300"/>
+	</hbox>
+	<splitter/>	
+	
+	<tabbox flex="1" id="tab_box" selectedIndex="0">
+		<tabs>
+			<tab label="&soaclient.uddi.box.request.header.titel;"/> 
+		    <tab label="&soaclient.uddi.box.request.body.titel;"/> 
+		    <tab label="&soaclient.uddi.box.response.header.titel;"/>
+		    <tab selected="true" label="&soaclient.uddi.box.response.body.titel;"/>
+		</tabs>
+		<tabpanels flex="3">
+		    <tabpanel flex="1">
+		    	<textbox id="box_requestHeader" multiline="true" flex="1" value="Content-Type: text/xml"/>
+		    </tabpanel>
+			<tabpanel flex="1">
+		    	<textbox id="box_requestBody" readonly="true" multiline="true" flex="1" oninput="uddiClient.requestBodyChange();"/>
+		    </tabpanel>
+			<tabpanel flex="1">
+		    	<textbox id="box_responseHeader" readonly="true" multiline="true" flex="1"/>
+		    </tabpanel>
+		    <tabpanel flex="1">
+		    	<textbox id="box_responseBody" readonly="true" multiline="true" flex="1"/>
+		    </tabpanel>
+		</tabpanels>
+	</tabbox>
+	
+	<hbox>
+		<caption label="&soaclient.statusbox.title;"/>
+		<textbox id="statusbox" readonly="true" multiline="false" flex="1" editable="false"/>
+	</hbox>
+  </vbox>
+</window>

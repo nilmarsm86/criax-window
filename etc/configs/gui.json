@@ -1,0 +1,120 @@
+{
+    "export" : ["generate", "package", "prebuild", "update", "test-cli", "inspector"],
+    "jobs" :
+    {
+        "generate" :
+        {
+          "desc"   : "generate the application, only for the first time",
+          "extend" : ["env", "chrome"],//["inc_lib","mvp","persistence"]
+          "run" : ["source"],
+          "compile-options" : {"code" : {"optimize" : []}},
+          "environment" : {"engine.name" : ["${ENGINE}"]}
+        },
+
+        "package" :
+        {
+          "desc"   : "create a distribuible version of the application",
+          "extend" : ["env", "chrome"],//["inc_lib","mvp","persistence"]
+          "run" : ["validate","translation","white-space","beauty","lint"],//["build-parts"]
+          "environment" : {"engine.name" : ["${ENGINE}"]}
+        },
+
+        "prebuild" :
+        {
+          "desc"   : "create a prebuild version of the application",
+          "extend" : ["env", "chrome"],//["inc_lib","mvp","persistence"]
+          "run" : ["validate","translation","white-space","beauty","lint"],//["build-parts"]
+          "compile-options" : {"code" : {"optimize" : []}},
+          "environment" : {"engine.name" : ["${ENGINE}"]}
+        },
+
+        "update" :
+        {
+          "desc"   : "compile and update the application",
+          "extend" : ["env", "chrome"],//["inc_lib","mvp","persistence"]
+          "run" : ["validate","translation"],//["white-space","beauty","lint","source-parts"]
+          "compile-options" : {"code" : {"optimize" : []}},
+          "environment" : {"engine.name" : ["${ENGINE}"]}
+        },
+        
+        "test-cli" :
+        {
+          "desc" : "create a basic (server-side/headless) test runner app for unit tests (source version) of the current library",
+
+          "extend" : ["testrunner-opt::source-basic"],
+
+          "let" :
+          {
+            "TESTRUNNER_ROOT" : "${QOOXDOO_PATH}/../../lib/testrunner",
+            "TEST_INCLUDE"    : "${APPLICATION}.test.*",
+            "BUILD_PATH"      : "${ROOT}/test",
+            "TESTRUNNER_MAIN_CLASS" : "testrunner.ApplicationCli"
+          }
+        },
+        
+        "inspector":
+        {
+          "desc"   : "create an inspector instance in the current library",
+
+          "extend" : ["inspector::build"],
+
+          "let"    :
+          {
+            "INSPECTOR_ROOT" : "${QOOXDOO_PATH}/../../lib/inspector",
+            "INSPECTOR_PATH"    : "${ROOT}/inspector"
+          },
+
+          "environment" :
+          {
+            "inspector.selenium.extensions" : "${ROOT}/inspector/script/user-extensions.js"
+          },
+
+          "=run" : ["inspector-resources", "inspector-script", "inspector-files", "inspector::build-files-simulator"]
+        },
+        
+        "inspector-resources":
+        {
+          "extend"  : ["inspector::build-resources"],
+
+          "copy-files" : // piggy-packing another files copy job onto this one
+          {
+            "files"  :
+            [
+              "index.html"
+            ],
+
+            "target" : "${INSPECTOR_PATH}",
+            "source" : "${INSPECTOR_ROOT}/source/resource/inspector/html"
+          }
+        },
+        
+        "inspector-script":
+        {
+          "extend"  : ["inspector::build-script"],
+
+          "compile-options":
+          {
+            "uris" :
+            {
+              "resource" : "${ROOT}/inspector/resource",
+              "script"   : "${ROOT}/inspector/script"
+            }
+          }
+        },
+        
+        "inspector-files":
+        {
+          "extend" : ["inspector::build-files"],
+
+          "copy-files" :
+          {
+            "=files" :
+            [
+              "inspector.html"
+            ],
+
+            "target" : "${ROOT}/source"
+          }
+        }
+    }
+}

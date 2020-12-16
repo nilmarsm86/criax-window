@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/global.css"   type="text/css"?>
+<?xml-stylesheet href="chrome://soaclient/skin/overlay.css" type="text/css"?>
+
+<!DOCTYPE dialog SYSTEM "chrome://soaclient/locale/soaclient.dtd">
+<dialog id             = "authentication"
+        title          = "&soaclient.authentication.title;"
+        buttons        = "accept, cancel"
+        xmlns          = "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        persist        = "screenX screenY width height"
+        width          = "300"
+        height         = "160"
+        ondialogaccept = "done()">
+
+  <script>
+    <![CDATA[
+		function done() {	
+			window.arguments[0].username = document.getElementById('username').value;
+			window.arguments[0].password = document.getElementById('password').value;
+			return true;
+		}
+    ]]>
+  </script>		
+		
+  <label value="&soaclient.authentication.username;" accesskey="&soaclient.authentication.key1;" control="username"/>
+  <textbox id="username" width="250"/>
+  <label value="&soaclient.authentication.password;" accesskey="&soaclient.authentication.key2;" control="password"/>
+  <textbox id="password" width="250" type="password"/>
+
+</dialog>

@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://soaclient/skin/overlay.css" type="text/css"?>
+
+<!DOCTYPE window SYSTEM "chrome://soaclient/locale/soaclient.dtd">
+
+<overlay id ="overlay" xmlns = "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+  <script type="application/x-javascript" src="chrome://soaclient/content/overlay.js"/>
+
+  <popup id="menu_ToolsPopup">
+    <menu id="overlay_menu" label="&soaclient.overlay.label;" accesskey="S" position="10" class="menu-iconic" image="chrome://soaclient/skin/logo16.png">
+		<menupopup id="overlay_menupopup">
+			<menuitem 	id="menuitem_WS" label="&soaclient.overlay.WS.label;" oncommand="loadWSClient()"
+						accesskey="W"   position="1" class="menuitem-iconic" image="chrome://soaclient/skin/arrowred16.png"/>
+			<menuitem	id="menuitem_UDDI" label="&soaclient.overlay.UDDI.label;" oncommand="loadUDDIClient()"
+						accesskey="U" position="2" class="menuitem-iconic" image="chrome://soaclient/skin/arrowblue16.png"/>			   
+			<menuitem	id="menuitem_ADVANCED" label="&soaclient.overlay.ADVANCED.label;" oncommand="loadAdvancedClient()"
+						accesskey="A" position="3" class="menuitem-iconic" image="chrome://soaclient/skin/arrowyellow16.png"/>								
+		</menupopup>
+	</menu>
+  </popup>
+  
+  <popup id="contentAreaContextMenu">
+    <menu id="overlay_menu" label="&soaclient.overlay.label;" accesskey="S" position="10" class="menu-iconic" image="chrome://soaclient/skin/logo16.png">
+		<menupopup id="overlay_menupopup">
+			<menuitem 	id="menuitem_WS" label="&soaclient.overlay.WS.label;" oncommand="loadWSClient()"
+						accesskey="W"   position="1" class="menuitem-iconic" image="chrome://soaclient/skin/arrowred16.png"/>
+			<menuitem	id="menuitem_UDDI" label="&soaclient.overlay.UDDI.label;" oncommand="loadUDDIClient()"
+						accesskey="U" position="2" class="menuitem-iconic" image="chrome://soaclient/skin/arrowblue16.png"/>			   
+			<menuitem	id="menuitem_ADVANCED" label="&soaclient.overlay.ADVANCED.label;" oncommand="loadAdvancedClient()"
+						accesskey="A" position="3" class="menuitem-iconic" image="chrome://soaclient/skin/arrowyellow16.png"/>								
+		</menupopup>
+	</menu>
+  </popup>
+  
+  <toolbarpalette id="BrowserToolbarPalette">
+    <toolbarbutton id="soaclient-toolbar-button" 
+      label="SOA Client" 
+      tooltiptext="Start SOA Client" 
+      oncommand="loadWSClient();" 
+      class="toolbarbutton-1 chromeclass-toolbar-additional custombutton" 
+      image="chrome://soaclient/skin/logo24.png" />
+  </toolbarpalette>    
+</overlay>

@@ -1,0 +1,7 @@
+Available skeletons:  
+  - desktop    - gui                -- is a standard qooxdoo GUI application
+  - inline     - for test && api    -- is an inline qooxdoo GUI application
+  - mobile     - mobile             -- is a qooxdoo mobile application with full OO support and mobile GUI classes
+  - native     - cli                -- is a qooxdoo application with full OO support but no GUI classes
+  - server     - httpd              -- for non-browser run times like Rhino, node.js
+  - website    - package gui        -- can be used to build low-level qooxdoo applications

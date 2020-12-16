@@ -1,0 +1,34 @@
+{
+  "info" : 
+  {
+    "name" : "cormx",
+
+    "summary" : "ORM para SQLite",
+    "description" : "ORM para coneccion con base de datos SQLite",
+    
+    "homepage" : "http://",
+
+    "license" : "MPL",
+    "authors" : 
+    [
+      {
+        "name" : "Nilmar Sanchez Muguercia",
+        "email" : "nilmar@uci.cu"
+      }
+    ],
+
+    "version" : "0.1.0",
+    "qooxdoo-versions": ["2.1"],
+    "criax" : "0.1"
+  },
+  
+  "provides" : 
+  {
+    "namespace"   : "cormx",
+    "encoding"    : "utf-8",
+    "class"       : "source/class",       
+    "resource"    : "source/resource",
+    "translation" : "source/translation",
+    "type"        : "application"
+  }
+}

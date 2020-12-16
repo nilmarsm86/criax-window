@@ -1,0 +1,1 @@
+{"attributes": {"fullName": "dialog.Dialog", "packageName": "dialog", "isStatic": true, "name": "Dialog", "childClasses": "criax.contrib.dialog.Loading,criax.contrib.dialog.Opacity,criax.ui.window.Message"}, "type": "class"}

@@ -1,0 +1,14 @@
+QOOXDOO
+
+1- Cambiar criax/knl/qooxdoo/framework/source/class/qx/bom/client/Engine.js Metodo: __isGecko
+2- Agregar criax/knl/qooxdoo/tool/bin/create-application.py [307]
+3- Agregar criax/knl/qooxdoo/framework/source/class/qx/Class.js Metodo: define [206-209], Metodo __allowedKeys [738] HACER UNA COPIA ESPEJO DENTRO DE CRIAX Y UTILIZARLA EN VEZ DE ESTA CLASE PARA PODERLA DEJAR INTACTA, LO MISMO CON LA INTERFAZ
+4- Agregar/modificar criax/knl/qooxdoo/tool/pylib/ecmascript/transform/check/lint.py [337-339]
+5- Comentariar el cuerpo del metodo y devolver true. Agregar el codigo para que funcione el chromeStorage. criax/knl/qooxdoo/framework/source/class/qx/bom/client/Html.js Metodo: getLocalStorage [205-227]
+6- Agregar criax/knl/qooxdoo/framework/source/class/qx/Mixin.js Metodo: define [132-138], Metodo __allowedKeys [349] HACER UNA COPIA ESPEJO DENTRO DE CRIAX Y UTILIZARLA EN VEZ DE ESTA CLASE PARA PODERLA DEJAR INTACTA, LO MISMO CON LA INTERFAZ
+7- Comentariar criax/knl/qooxdoo/framework/source/class/qx/core/Property.js Key: statics [273], Method: __emitIncomingValueTransformation [959-961]
+8- Agregar criax/knl/qooxdoo/framework/source/class/qx/core/Property.js Key: statics [274], Method: __emitIncomingValueTransformation [962-972]
+9- Comentariar criax/knl/qooxdoo/framework/source/class/qx/Class.js Method: __validateProperty [1249-1254]
+10- Agregar criax/knl/qooxdoo/framework/source/class/qx/Interface.js Metodo: define [122-127], Metodo __allowedKeys [566] HACER UNA COPIA ESPEJO DENTRO DE CRIAX Y UTILIZARLA EN VEZ DE ESTA CLASE PARA PODERLA DEJAR INTACTA, LO MISMO CON LA INTERFAZ
+11- Cambiar criax/knl/qooxdoo/framework/source/class/qx/bom/client/Browser.js Metodo: getVersion [141]
+12- Cambiar criax/knl/qooxdoo/framework/source/class/qx/bom/client/Engine.js Metodo: getVersion [58]

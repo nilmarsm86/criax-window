@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <title>qooxdoo &raquo; Playground</title>
+  <style type="text/css">
+    .qx_samples { display:none }
+    .vbox {
+      /* Solves Firefox bug on playground.*/
+      height:100%;
+    }
+  </style>
+</head>
+<body>
+
+  <div style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;">
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; margin: auto; width: 50px; height: 15px; text-align: center;">
+      <img src="resource/playground/images/loading.gif">
+    </div>
+  </div>
+
+<!-- ********************************************************************** -->
+
+<textarea class="qx_samples" title="Hello World-ria">// Create a button
+var button1 = new qx.ui.form.Button("First Button", "icon/22/apps/internet-web-browser.png");
+
+// Document is the application root
+var doc = this.getRoot();
+
+// Add button to document at fixed coordinates
+doc.add(button1,
+{
+  left : 100,
+  top  : 50
+});
+
+// Add an event listener
+button1.addListener("execute", function(e) {
+  alert("Hello World!");
+});</textarea>
+
+<!-- ********************************************************************** -->
+
+<div id="compare_div1" style="visibility: hidden;"></div>
+<div id="compare_div2" style="visibility: hidden;"></div>
+
+<script type="text/javascript" src="script/playground.js"></script>
+
+</body>
+</html>

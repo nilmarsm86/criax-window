@@ -1,0 +1,116 @@
+{
+  "name"    : "dialog",
+
+  "include" :
+  [
+    {"path" : "${QOOXDOO_PATH}/tool/data/config/application.json"},
+    {"path" : "etc/libraries.json"},
+    {"path" : "etc/enviroment.json"},
+    //{"path" : "etc/bootload.json"},
+    //{"path" : "etc/persistence.json"},
+    {"path" : "etc/chrome.json"},
+    {"path" : "etc/parts.json"}
+  ],
+
+  "export" :
+  [
+    "api",
+    "clean",
+    "distclean",
+    "test",
+    "watch",
+    //JOBS DE CRIAX
+    "generate",
+    "update",
+    "prebuild",
+    "package",
+    "beauty",
+    "white-space"
+  ],
+
+  "default-job" : "update",
+
+  "let" :
+  {
+    "APPLICATION"  : "criax.library.dialog",
+    "QOOXDOO_PATH" : "../../..",
+    "QXTHEME"      : "criax.library.dialog.theme.Theme",
+    "API_EXCLUDE"  : ["${APPLICATION}.theme.*", "${APPLICATION}.test.*", "qx.*", "${APPLICATION}.simulation.*", "criax.*", "cormx.*", "accordion.*", "collapsablepanel.*", "combotable.*", "dialog.*", "logpane.*", "mutablelist.*", "tokenfield.*", "versionlabel.*"],
+    "LOCALES"      : [ "en" ],
+    "CACHE"        : "./var/cache",
+    "ROOT"         : ".",
+    "ENGINE"       : "gecko"
+  },
+
+  "jobs" :
+  {
+    "generate" :
+    {
+      "extend" : ["inc_lib","env",/*"bootload","persistence",*/"chrome"],
+      "run" : ["source"],
+      "compile-options" : {"code" : {"optimize" : []}},
+      "environment" : {"engine.name" : ["${ENGINE}"]}
+    },
+
+    "update" :
+    {
+      "extend" : ["inc_lib","env",/*"bootload","persistence",*/"chrome"],
+      "run" : ["validate-config","translation","white-space"/*,"beauty"*/,"lint","source-parts"],
+      "compile-options" : {"code" : {"optimize" : []}},
+      "environment" : {"engine.name" : ["${ENGINE}"]}
+    },
+
+    "prebuild" :
+    {
+      "extend" : ["inc_lib","env",/*"bootload","persistence",*/"chrome"],
+      "run" : ["validate-manifest","validate-config","translation","white-space"/*,"beauty"*/,"lint","build-parts"],
+      "compile-options" : {"code" : {"optimize" : []}},
+      "environment" : {"engine.name" : ["${ENGINE}"]}
+    },
+
+    "package" :
+    {
+      "extend" : ["inc_lib","env",/*"bootload","persistence",*/"chrome"],
+      "run" : ["validate-manifest","validate-config","translation","white-space"/*,"beauty"*/,"lint","build-parts"],
+      "environment" : {"engine.name" : ["${ENGINE}"]}
+    },
+
+    "beauty" :
+    {
+      "extend" : ["pretty"],
+      "pretty-print" :
+      {
+        "general" : {"indent-string" : "    "},
+        "comments" :
+        {
+          "block" : {"add" : "true"},
+          "trailing" :
+          {
+            "keep-column" : "false",
+            "comment-cols" : ["50", "70", "90"],
+            "padding" : " "
+          }
+        },
+        "code" :
+        {
+          "align-with-curlies" : false,
+          "open-curly" :
+          {
+            "newline-before" : "a",
+            "indent-before" : false
+          }
+        }
+      }
+    },
+
+    "white-space" :
+    {
+      "extend" : ["fix"],
+      "fix-files" :
+      {
+        "eol-style" : "LF",
+        "tab-width" : 4
+      }
+    }
+  }
+}

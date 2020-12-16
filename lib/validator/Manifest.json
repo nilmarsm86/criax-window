@@ -1,0 +1,34 @@
+{
+  "info" : 
+  {
+    "name" : "validator",
+
+    "summary" : "Validar datos",
+    "description" : "Validar datos",
+    
+    "homepage" : "http://",
+
+    "license" : "MPL",
+    "authors" : 
+    [
+      {
+        "name" : "Nilmar Sanchez Muguercia",
+        "email" : "nilmar@uci.cu, nilmar@isla-paradiso.net, nilmar.sanchez@nauta.cu"
+      }
+    ],
+
+    "version" : "1.0.0",
+    "qooxdoo-versions": ["5.0"],
+    "criax" : "2.0"
+  },
+  
+  "provides" : 
+  {
+    "namespace"   : "validator",
+    "encoding"    : "utf-8",
+    "class"       : "source/class",       
+    "resource"    : "source/resource",
+    "translation" : "source/translation",
+    "type"        : "application"
+  }
+}

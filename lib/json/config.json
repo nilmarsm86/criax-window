@@ -1,0 +1,49 @@
+{
+  "name"    : "json",
+  
+  "include" :
+  [
+    {"path" : "${QOOXDOO_PATH}/tool/data/config/application.json"}      
+  ],
+
+  "export" :
+  [
+    "api",
+    "api-data",
+    "build",
+    "clean",
+    "distclean",
+    "dependencies",
+    "fix",
+    "info",
+    "lint",
+    "migration",
+    "pretty",
+    "profiling",
+    "source",
+    "source-all",
+    "source-hybrid",
+    "source-server",
+    "source-server-reload",
+    "source-httpd-config",
+    "test",
+    "test-source",
+    "translation",
+    "validate-config",
+    "validate-manifest",
+    "watch"
+  ],
+
+  "default-job" : "source-hybrid",
+
+  "let" :
+  {
+    "APPLICATION"  : "json",
+    "QOOXDOO_PATH" : "../../..",
+    "QXTHEME"      : "",
+    "API_EXCLUDE"  : ["qx.test.*", "${APPLICATION}.theme.*", "${APPLICATION}.test.*", "qx.*", "${APPLICATION}.simulation.*", "criax.*", "cormx.*", "accordion.*", "collapsablepanel.*", "combotable.*", "dialog.*", "logpane.*", "mutablelist.*", "tokenfield.*", "versionlabel.*", "json.Application"],
+    "LOCALES"      : ["en", "es"],
+    "CACHE"        : "../../../build/cache",
+    "ROOT"         : "."
+  }
+}

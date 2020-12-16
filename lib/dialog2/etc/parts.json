@@ -1,0 +1,31 @@
+{
+    "export" : ["source-parts", "build-parts"],
+    "jobs" :
+    {
+        "source-parts":
+        {
+          "extend" : ["source"],
+          "packages" :
+          {
+            "parts" :
+            {
+              "boot" : { "include" : [ "criax.library.dialog.theme.Theme", "criax.library.dialog.Application" ] },              
+            },
+            "separate-loader" : true,
+          }
+        },
+        
+        "build-parts":
+        {
+          "extend" : ["build"],
+          "packages" :
+          {
+            "parts" :
+            {
+              "boot" : { "include" : [ "criax.library.dialog.theme.Theme", "criax.library.dialog.Application" ] },              
+            },
+            "separate-loader" : true,
+          }
+        }
+    }
+}
